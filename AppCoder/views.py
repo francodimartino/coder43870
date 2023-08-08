@@ -20,3 +20,21 @@ def listar_cursos(request):
     for curso in cursos:
         respuesta+=f"{curso.nombre} - {curso.comision}<br>"
     return HttpResponse(respuesta)
+
+
+def inicio(request):
+    return render(request,"AppCoder/inicio.html")
+
+def profesores(request):
+    return render(request,"AppCoder/profesores.html")
+
+def estudiantes(request):
+    return render(request,"AppCoder/estudiantes.html")
+
+def cursos(request):
+    cursos=Curso.objects.all()
+    return render(request,"AppCoder/cursos.html", {"cursos":cursos})
+
+def entregables(request):
+    return render(request,"AppCoder/entregables.html")
+
