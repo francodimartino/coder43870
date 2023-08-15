@@ -1,0 +1,28 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}ESTA ES LA PAGINA DE RESULTADOS DE BUSQUEDA POR COMISION{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if cursos %}
+
+    <h1>RESULTADOS DE BUSQUEDA</h1>
+    {% for curso in cursos %}
+
+        <h3>{{ curso.nombre }} - {{ curso.comision }}</h3>
+    {% endfor %}
+
+
+{% else %}
+
+    <h1>NO SE ENCONTRARON RESULTADOS</h1>
+
+{% endif %}
+
+{% endblock %}
+
+{% block botonprofes %}
+"btn btn-danger"
+{% endblock %}
