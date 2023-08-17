@@ -7,6 +7,7 @@
 {% block contenido_que_cambia %}
 <h1>PROFESORES</h1>
 
+<h3>{{ mensaje }}</h3>
 <form action="{% url 'profesores' %}" method="post"> {% csrf_token %}
     <table>
     {{ formulario.as_table }} 
@@ -15,7 +16,45 @@
     <input type="submit" value="Agregar">
 </form>
 
-<h3>{{ mensaje }}</h3>
+<table>
+    <thead>
+        <tr>
+            
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Profesion</th>
+            <th>OPCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        {% for profesor in profesores %}
+        <tr>
+            
+            <td>
+                {{ profesor.nombre}}
+            </td>
+            <td>
+                {{ profesor.apellido}}
+            </td>
+            <td>
+                {{ profesor.email}}
+            </td>
+            <td>
+                {{ profesor.profesion}}
+            </td>
+            <td>
+                <a class="btn btn-danger" href="{% url 'eliminarProfesor'  profesor.id  %}">Eliminar  </a>
+                <a class="btn btn-success" href="{% url 'editarProfesor'  profesor.id  %}">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 
 {% endblock %}

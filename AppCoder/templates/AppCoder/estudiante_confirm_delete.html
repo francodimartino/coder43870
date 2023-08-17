@@ -1,0 +1,15 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}ESTA ES LA PAGINA DE LOS ESTUDIANTES {% endblock %}
+
+{% block contenido_que_cambia %}
+<h1>FORMULARIO DE ESTUDIANTES!</h1>
+
+<form method="post">{% csrf_token %}
+    estas seguro que deseas borrar el estudiante "{{ object }}"?
+    <input type="submit" value="SI">
+
+</form>
+{% endblock %}
