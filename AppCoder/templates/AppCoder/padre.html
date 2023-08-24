@@ -31,11 +31,14 @@
                 <a class="btn btn-info" href="{% url 'estudiante_list' %}">Estudiantes</a>
                 <a class="btn btn-success" href="{% url 'cursos' %}">Cursos</a>
                 
-                <p>Bienvenido: {{ user.username }}</p>
                 <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+                <a class="btn btn-success" href="{% url 'editarPerfil' %}">editar Perfil</a>
+                <a class="btn btn-success" href="{% url 'agregarAvatar' %}">agregar Avatar</a>
                 {% else %}
                 <a class="btn btn-success" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-success" href="{% url 'register' %}">Register</a>
                 {% endif %}
+                <img src="{{ avatar }}" alt="Avatar" style="width:50px;height:50px;"/>
             </div>
         </nav>
         <!-- Masthead-->
